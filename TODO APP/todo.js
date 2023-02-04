@@ -12,16 +12,13 @@ inputBox.onkeyup = ()=>{
     else{
         addBtn.classList.remove("active");
     }
-
 }
 showTasks();
-
 addBtn.onclick= ()=>{
     let userData= inputBox.value;
     let getLocalStorage=localStorage.getItem("New Todo");
     if(getLocalStorage==null){
         listArr=[];
-
     }
     else{
         listArr=JSON.parse(getLocalStorage);
@@ -30,14 +27,12 @@ addBtn.onclick= ()=>{
     listArr.push(userData);
     localStorage.setItem("New Todo",JSON.stringify(listArr));
     showTasks();
-
 }
 
 function showTasks(){
     let getLocalStorage=localStorage.getItem("New Todo");
     if(getLocalStorage==null){
         listArr=[];
-
     }
     else{
         listArr=JSON.parse(getLocalStorage);
@@ -63,12 +58,8 @@ function showTasks(){
     inputBox.value='';
 
     addBtn.classList.remove("active");
-
-
-
-
-
 }
+
 function deleteTask(index){
     let getLocalStorage=localStorage.getItem("New Todo");
     listArr=JSON.parse(getLocalStorage);
@@ -76,14 +67,10 @@ function deleteTask(index){
     listArr.splice(index,1);
     localStorage.setItem("New Todo",JSON.stringify(listArr));
     showTasks();
-
-
 }
 
 deleteAllBtn.onclick= ()=>{
     listArr=[];
     localStorage.setItem("New Todo",JSON.stringify(listArr));
     showTasks();
-
-
 }
